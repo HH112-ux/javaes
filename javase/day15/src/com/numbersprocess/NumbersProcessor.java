@@ -19,12 +19,15 @@ public class NumbersProcessor {
             try {
                 double num = Double.parseDouble(str.trim());
                 double result = num * 10;
-                System.out.printf("%.2f%n", result);
+                BigDecimal bd = new BigDecimal(result);
+                bd = bd.setScale(2, BigDecimal.ROUND_HALF_UP);
+                System.out.println(bd);
             } catch (NumberFormatException e) {
                 System.out.println(str + "这个不是数字");
             }
         }
     }
 }
+
 
 
