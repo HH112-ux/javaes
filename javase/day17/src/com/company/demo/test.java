@@ -17,7 +17,7 @@ import static com.company.entity.Phone.*;
  * @project com.company.demo
  * @time 2026/1/21
  */
-public class test {
+public class Test {
     public static void main(String[] args) {
 
         List<Employee> employees = new ArrayList<>();
@@ -80,3 +80,4 @@ public class test {
 
     }
 }
+
