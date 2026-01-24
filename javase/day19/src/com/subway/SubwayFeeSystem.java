@@ -10,7 +10,10 @@ import java.util.Map;
  */
 public class SubwayFeeSystem {
     private static final Map<String, Integer> SUBWAY_STATION = new HashMap<>();
-    private static final Map<Integer, Integer> SUBWAY_FEE = new HashMap<>();
+    private static final int BASE_FEE=2;
+    private static final int BASE_STATION=3;
+    private static final int STEP_FEE=1;
+    private static final int STEP_STATION=3;
 
     static {
         SUBWAY_STATION.put("沿山大道站", 0);
@@ -23,16 +26,7 @@ public class SubwayFeeSystem {
         SUBWAY_STATION.put("万寿路站", 7);
         SUBWAY_STATION.put("国际健康中心站", 8);
 
-        SUBWAY_FEE.put(0, 2);
-        SUBWAY_FEE.put(1, 2);
-        SUBWAY_FEE.put(2, 2);
-        SUBWAY_FEE.put(3, 3);
-        SUBWAY_FEE.put(4, 3);
-        SUBWAY_FEE.put(5, 3);
-        SUBWAY_FEE.put(6, 4);
-        SUBWAY_FEE.put(7, 4);
-        SUBWAY_FEE.put(8, 5);
-        SUBWAY_FEE.put(9, 5);
+        
     }
 
     public static int calculateFee(String startStation, String endStation) {
@@ -42,7 +36,10 @@ public class SubwayFeeSystem {
             throw new IllegalArgumentException("站点名称错误");
         }
         int stationCount = Math.abs(endIndex - startIndex);
-
-        return SUBWAY_FEE.get(stationCount);
+        if (stationCount<BASE_STATION) {
+            return BASE_FEE;
+        }else{
+         return (((stationCount-BASE_STATION)+STEP_STATION-1)/STEP_STATION)*STEP_FEE+BASE_FEE;   
+        }
     }
 }
