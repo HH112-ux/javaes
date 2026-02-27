@@ -22,7 +22,7 @@ public class HareAndTortoise {
                 if (tortoisePos > FINISH_LINE) tortoisePos = FINISH_LINE;
                 System.out.println("乌龟跑到了 " + tortoisePos + " 米");
                 try {
-                    Thread.sleep(100);
+                    TimeUnit.MILLISECONDS.sleep(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -40,13 +40,13 @@ public class HareAndTortoise {
                 System.out.println("兔子跑到了 " + harePos + " 米");
                 if (harePos > 70) {
                     try {
-                        Thread.sleep(2);
+                        TimeUnit.MILLISECONDS.sleep(2);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
                 try {
-                    Thread.sleep(100);
+                    TimeUnit.MILLISECONDS.sleep(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -60,4 +60,5 @@ public class HareAndTortoise {
         tortoise.start();
 
     }
+
 }
