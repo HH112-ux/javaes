@@ -13,7 +13,7 @@ public class TicketRush {
     static int tickets = 10;
 
     public static void main(String[] args) {
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(10, 10, 60, TimeUnit.SECONDS
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(10, 10, 0, TimeUnit.SECONDS
                 , new LinkedBlockingDeque<>());
         for (int i = 0; i < 30; i++) {
             final int id = i + 1;
@@ -30,3 +30,4 @@ public class TicketRush {
         executor.shutdown();
     }
 }
+
